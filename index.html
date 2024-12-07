@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        /* Inline styles for quick customization */
         #viewer {
             text-align: center;
             margin-top: 20px;
@@ -21,7 +20,6 @@
             display: block;
         }
 
-        /* Spinner styles */
         .spinner {
             display: none;
             margin: 10px auto;
@@ -51,6 +49,14 @@
             40% {
                 transform: scale(1);
             }
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+
+        .nav-buttons button {
+            margin: 0 10px;
         }
     </style>
 </head>
@@ -102,6 +108,11 @@
             </div>
             <!-- Single Embedded Viewer -->
             <iframe id="contentViewer" src="introduction.html" title="Embedded Viewer" width="90%" height="500" frameborder="0"></iframe>
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <button id="prevButton" class="btn btn-primary" onclick="navigate('prev')">Previous</button>
+                <button id="nextButton" class="btn btn-primary" onclick="navigate('next')">Next</button>
+            </div>
         </section>
     </main>
 
@@ -110,6 +121,17 @@
     </footer>
 
     <script>
+        const pages = [
+            'introduction.html',
+            'literature-review.html',
+            'speculative-biology.html',
+            'methodology.html',
+            'discussion.html',
+            'references.html'
+        ];
+
+        let currentIndex = 0;
+
         // Function to load a new page into the iframe
         function loadPage(page) {
             const iframe = document.getElementById('contentViewer');
@@ -125,7 +147,26 @@
 
             // Update the iframe source
             iframe.src = page;
+
+            // Update current index based on the page loaded
+            currentIndex = pages.indexOf(page);
         }
+
+        // Function to navigate between pages
+        function navigate(direction) {
+            if (direction === 'next' && currentIndex < pages.length - 1) {
+                currentIndex++;
+            } else if (direction === 'prev' && currentIndex > 0) {
+                currentIndex--;
+            }
+            loadPage(pages[currentIndex]);
+        }
+
+        // Disable buttons when at start or end
+        document.getElementById('contentViewer').onload = () => {
+            document.getElementById('prevButton').disabled = currentIndex === 0;
+            document.getElementById('nextButton').disabled = currentIndex === pages.length - 1;
+        };
     </script>
 </body>
 </html>
