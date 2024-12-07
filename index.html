@@ -59,22 +59,38 @@
             margin: 0 10px;
         }
 
+        .download-section {
+            margin: 30px auto;
+            text-align: center;
+        }
+
         .download-button {
-            display: block;
-            margin: 20px auto;
+            display: inline-flex;
+            align-items: center;
             padding: 12px 20px;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
             color: white;
             background-color: #1abc9c;
             border: none;
             border-radius: 5px;
-            text-align: center;
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
 
         .download-button:hover {
             background-color: #16a085;
+        }
+
+        .download-button i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .download-description {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
         }
     </style>
 </head>
@@ -134,8 +150,11 @@
         </section>
 
         <!-- Download Paper Section -->
-        <section id="download">
-            <a href="paper.pdf" class="download-button" download>Download Full Paper</a>
+        <section class="download-section">
+            <a href="paper.pdf" class="download-button" download>
+                <i class="fas fa-file-download"></i> Download Full Paper
+            </a>
+            <p class="download-description">Click the button to download the complete PDF of the research paper.</p>
         </section>
     </main>
 
@@ -143,6 +162,7 @@
         <p>© 2024 Fire-Breathing Scaled Flyers | GitHub Pages</p>
     </footer>
 
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         const pages = [
             'introduction.html',
