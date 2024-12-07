@@ -41,17 +41,27 @@ header p {
     padding: 10px 15px;
     text-transform: uppercase;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar .navbar-nav .nav-link:hover {
     background-color: #1abc9c;
-    color: #fff;
+    color: white;
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    border-radius: 5px;
 }
 
 /* Main Content */
 main {
     padding: 20px;
+    margin-bottom: 80px; /* Ensures spacing before the fixed footer */
 }
 
 section {
@@ -75,12 +85,47 @@ section p, section ul {
     margin-top: 10px;
 }
 
-/* Styling for Embedded Viewers (iframes) */
+/* Styling for Embedded Viewer (iframe) */
 iframe {
-    border: none; /* Removes default border */
-    margin-top: 10px; /* Adds spacing from section headers */
-    border-radius: 5px; /* Matches the section's rounded edges */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for a cohesive look */
+    border: 2px solid #34495e;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px auto;
+    display: block; /* Centers the iframe */
+    background-color: white; /* Adds a clean background */
+}
+
+/* Spinner Styles */
+.spinner {
+    display: none; /* Initially hidden */
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.spinner div {
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+    background-color: #1abc9c;
+    border-radius: 100%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.spinner div:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.spinner div:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
 }
 
 /* Footer */
@@ -109,6 +154,11 @@ footer {
     }
 
     iframe {
-        height: 300px; /* Reduces iframe height for smaller screens */
+        height: 300px; /* Smaller iframe height for mobile */
+    }
+
+    .spinner div {
+        width: 12px;
+        height: 12px;
     }
 }
