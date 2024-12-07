@@ -58,6 +58,24 @@
         .nav-buttons button {
             margin: 0 10px;
         }
+
+        .download-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #16a085;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +131,11 @@
                 <button id="prevButton" class="btn btn-primary" onclick="navigate('prev')">Previous</button>
                 <button id="nextButton" class="btn btn-primary" onclick="navigate('next')">Next</button>
             </div>
+        </section>
+
+        <!-- Download Paper Section -->
+        <section id="download">
+            <a href="paper.pdf" class="download-button" download>Download Full Paper</a>
         </section>
     </main>
 
