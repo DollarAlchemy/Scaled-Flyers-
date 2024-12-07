@@ -60,7 +60,7 @@
         }
 
         .download-section {
-            margin: 30px auto;
+            margin: 15px auto;
             text-align: center;
         }
 
@@ -86,18 +86,19 @@
             margin-right: 10px;
             font-size: 1.5rem;
         }
-
-        .download-description {
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #555;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Fire-Breathing Scaled Flyers</h1>
         <p>Intelligence and Evolutionary Mechanisms in Speculative Biology</p>
+
+        <!-- Download Paper Section (Placed in Header) -->
+        <div class="download-section">
+            <a href="paper.pdf" class="download-button" download>
+                <i class="fas fa-file-download"></i> Download Full Paper
+            </a>
+        </div>
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -147,14 +148,6 @@
                 <button id="prevButton" class="btn btn-primary" onclick="navigate('prev')">Previous</button>
                 <button id="nextButton" class="btn btn-primary" onclick="navigate('next')">Next</button>
             </div>
-        </section>
-
-        <!-- Download Paper Section -->
-        <section class="download-section">
-            <a href="paper.pdf" class="download-button" download>
-                <i class="fas fa-file-download"></i> Download Full Paper
-            </a>
-            <p class="download-description">Click the button to download the complete PDF of the research paper.</p>
         </section>
     </main>
 
